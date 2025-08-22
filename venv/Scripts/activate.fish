@@ -33,7 +33,7 @@ end
 # Unset irrelevant variables.
 deactivate nondestructive
 
-set -gx VIRTUAL_ENV 'C:\Users\Harinandrasana\Downloads\kelly\New folder\enqueteIA\venv'
+set -gx VIRTUAL_ENV 'C:\Users\Tsila\Desktop\enquete_prolog\venv'
 
 set -gx _OLD_VIRTUAL_PATH $PATH
 set -gx PATH "$VIRTUAL_ENV/"Scripts $PATH
