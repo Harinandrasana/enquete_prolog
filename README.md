@@ -8,7 +8,10 @@ Application web utilisant **Flask** (Python) et **SWI-Prolog** pour analyser des
 
 ### 1. Cloner le projet
 
-git clone
+git clone https://github.com/Harinandrasana/enquete_prolog.git
+
+#
+
 cd enquete_prolog
 
 ### 2. Créer un environnement virtuel et l’activer
