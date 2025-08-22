@@ -14,14 +14,8 @@ cd enquete_prolog
 ### 2. Créer un environnement virtuel et l’activer
 
 python -m venv venv
-
-### Linux / Mac
-
-source venv/bin/activate
-
-### Windows
-
-venv\Scripts\activate
+source venv/bin/activate # Linux / Mac
+venv\Scripts\activate # Windows
 
 ### 3. Installer les dépendances
 
