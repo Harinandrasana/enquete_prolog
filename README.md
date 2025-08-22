@@ -15,11 +15,11 @@ cd enquete_prolog
 
 python -m venv venv
 
-# Linux / Mac
+#### Linux / Mac
 
 source venv/bin/activate
 
-# Windows
+#### Windows
 
 venv\Scripts\activate
 
