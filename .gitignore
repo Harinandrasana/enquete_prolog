@@ -1,0 +1,44 @@
+# === ENVIRONNEMENT PYTHON ===
+venv/
+.env
+*.pyc
+__pycache__/
+*.pyo
+*.pyd
+*.env
+*.egg
+*.egg-info/
+dist/
+build/
+
+# === DOSSIERS FLASK STANDARD ===
+instance/
+*.db
+*.sqlite3
+
+# === CONFIG FLASK (facultatif si sensible) ===
+config.py
+*.log
+
+# === FRONT-END / STATIQUE ===
+static/*.tmp
+static/*.cache
+static/build/
+*.sass-cache/
+*.css.map
+*.js.map
+
+# === TEMPLATES TEMPORAIRES ===
+*.swp
+*.bak
+*.tmp
+
+# === VSCODE / IDE ===
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# === SYSTÈME ===
+.DS_Store
+Thumbs.db

@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Analyse de crime</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f5f7fa;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            min-height: 100vh;
+        }
+
+        .container {
+            background-color: white;
+            margin-top: 60px;
+            padding: 40px 50px;
+            border-radius: 12px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            width: 400px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #2c3e50;
+        }
+
+        form {
+            margin-top: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 6px;
+            font-weight: bold;
+            color: #34495e;
+        }
+
+        select {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            box-sizing: border-box;
+            font-size: 16px;
+            background-color: white;
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            background-color: #3498db;
+            border: none;
+            color: white;
+            font-size: 16px;
+            font-weight: bold;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #2980b9;
+        }
+
+        .result {
+            margin-top: 30px;
+            padding: 20px;
+            border: 1px solid #e74c3c;
+            background-color: #fdecea;
+            color: #c0392b;
+            border-radius: 6px;
+        }
+
+        .error {
+            border-color: #2ecc71;
+            background-color: #eafaf1;
+            color: #2c662d;
+        }
+
+        .result p {
+            margin: 8px 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Analyse de culpabilité</h1>
+
+        <form method="POST" action="/analyze">
+            <label for="suspect">Suspect :</label>
+            <select id="suspect" name="suspect" required>
+                <option value="" disabled selected>-- Sélectionner un suspect --</option>
+                {% for s in suspects %}
+                <option value="{{ s }}" {% if suspect==s %}selected{% endif %}>{{ s.capitalize() }}</option>
+                {% endfor %}
+            </select>
+
+            <label for="crime_type">Type de crime :</label>
+            <select id="crime_type" name="crime_type" required>
+                <option value="" disabled selected>-- Sélectionner un crime --</option>
+                {% for c in crime_types %}
+                <option value="{{ c }}" {% if crime_type==c %}selected{% endif %}>{{ c.capitalize() }}</option>
+                {% endfor %}
+            </select>
+
+            <button type="submit">Analyser</button>
+        </form>
+
+        {% if result %}
+        <div class="result {% if 'NON' in result or 'Veuillez' in result %}error{% endif %}">
+            <p><strong>Suspect :</strong> {{ suspect.capitalize() }}</p>
+            <p><strong>Type de crime :</strong> {{ crime_type.capitalize() }}</p>
+            <p><strong>{{ result }}</strong></p>
+        </div>
+        {% endif %}
+    </div>
+</body>
+
+</html>
